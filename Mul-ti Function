@@ -7,3 +7,14 @@ function multiFunction(arg){
 	
 	return value;
 }
+
+function compositeFunctions(){
+	for(let i = arguments.length -1; i > 0; i--){
+		let f = arguments[i-1];
+		arguments[i-1] = function(a){
+			arguments[i](f(a));
+		};
+	}
+	
+	return arguments[0];
+}
