@@ -1,0 +1,9 @@
+function multiFunction(arg){
+	let value = arguments[1](arg);
+	
+	for(let i = 2; i < arguments.length; i++){
+		value = arguments[i](value);
+	}
+	
+	return value;
+}
