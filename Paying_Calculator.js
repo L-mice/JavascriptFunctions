@@ -18,11 +18,10 @@ var JobProfile = function(wage, transpotation){
 		
 		let date = new Date(year, month, 1);
 		while((date.getFullYear() === year) && (date.getMonth() === month)){
-			let day = ((date.getDay() - 1) + 7) % 7;
+			let day = (date.getDay() + 6) % 7;
 			
-			result += ((this.baseWage * this.hours[day] * this.ratio[day]) + this.t_cost);
+			result += (this.baseWage * this.hours[day] * this.ratio[day]) + this.t_cost;
 			
-			console.log(date.getFullYear(), date.getMonth(), date.getDate(), result, day);
 			date.setDate(date.getDate() + 1);
 		}
 
