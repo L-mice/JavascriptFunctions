@@ -1,7 +1,7 @@
 // Part-time job calcurator
 
 
-var JobProfile = function(wage, transpotation){
+var JobProfile = function(wage = 1013, transpotation = 0){
 	this.baseWage = wage;
 	this.t_cost = transpotation;
 	
@@ -13,7 +13,7 @@ var JobProfile = function(wage, transpotation){
 	}
 	
 	
-	this.getPay = function(year, month){
+	this.getPay = function(year = (new Date().getFullYear()), month = 0){
 		let result = 0;
 		
 		let date = new Date(year, month, 1);
@@ -30,5 +30,3 @@ var JobProfile = function(wage, transpotation){
 	}
 }
 JobProfile.days = ["月","火","水","木","金","土","日","祝"];
-JobProfile.baseWage = 1013;
-JobProfile.t_cost = 0;
