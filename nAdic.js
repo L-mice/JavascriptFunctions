@@ -2,7 +2,7 @@
 	n-adic number
 
 	n as natural number(Integer, Larger than 0)
-	value as String
+	value as String (0 or Larget than 0)
 	
 	e.g
 		let a = new nAdic("F2", 16);
@@ -30,7 +30,7 @@ nAdic.toDecimal = function(value, n){
 	
 	value = {
 		a: value.split(".")[0],
-		b: value.split(".")[1]
+		b: value.split(".")[1] || [],
 	}
 
 	for(let k = 0; k < value.a.length; k++){
@@ -43,3 +43,28 @@ nAdic.toDecimal = function(value, n){
 
 	return result;
 };
+
+nAdic.byDecimal = function(value, n){
+	value = Number(value);
+	
+	if(value === 0) return 0;
+	
+	let result = "";
+	let digit = value < 1 ? 0 : Math.floor(Math.log(value) / Math.log(n));
+	
+	while(value > 0 && digit > -30){
+		if(digit == -1) result += ".";
+		
+		let a = Math.floor(value/ n**digit);
+		value -= a * n**digit;
+		result += nAdic.numberElementary[a];
+
+		
+		console.log(a,value,result,digit);
+		
+		digit--;
+
+	}
+	
+	return result;
+}
