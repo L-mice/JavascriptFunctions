@@ -58,9 +58,6 @@ nAdic.byDecimal = function(value, n){
 		let a = Math.floor(value/ n**digit);
 		value -= a * n**digit;
 		result += nAdic.numberElementary[a];
-
-		
-		console.log(a,value,result,digit);
 		
 		digit--;
 
