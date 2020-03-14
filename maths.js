@@ -1,8 +1,8 @@
-function factorial(natural_number){
-  let a = 1;
-  for(let i = 1; i <= natural_number; i++) a *= i;
-  
-  return a;
+function factorial(n){
+	let p = 1;
+	for(;n >= 1; n--) p *= n;
+	
+	return p;
 }
 
 function nCr(length, index){
